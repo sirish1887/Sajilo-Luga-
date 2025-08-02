@@ -358,110 +358,6 @@ nav a:hover::after {
 
 
 
-/* Testimonials Section */
-.testimonials-section {
-  position: relative;  /* needed for absolute video */
-  padding: 80px 20px;
-  background: #002a40; /* fallback background */
-  color: #e0f7fa;
-  perspective: 1000px;
-  overflow: hidden;    /* clip video overflow */
-  z-index: 0;
-}
-
-.testimonials-title {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: #00b4cc;
-}
-
-/* Video Background */
-.testimonials-video-bg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: auto;
-  height: 100%;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  z-index: -2;
-  filter: brightness(0.5) contrast(0.8);
-}
-
-/* Overlay to dim video */
-.testimonials-video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: -1;
-}
-
-/* Grid Layout */
-.testimonials-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-/* Testimonial Card */
-.testimonial-card {
-  position: relative;
-  background: rgb(152, 255, 152);
-  padding: 30px 30px 30px 50px; /* leave space for the bar */
-  border-radius: 20px;
-  width: 300px;
-  box-shadow: 0 5px 25px rgb(127, 10, 165);
-  transition: transform 0.6s ease, box-shadow 0.3s ease;
-  transform-style: preserve-3d;
-  cursor: pointer;
-  text-align: left;
-  overflow: hidden; /* ensures bar stays inside rounded corners */
-}
-
-/* Left Colored Bar */
-.testimonial-card .bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 8px;
-  background: linear-gradient(to bottom, #00b4cc, #00b4cc);
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-
-
-/* Hover 3D */
-.testimonial-card:hover {
-  transform: rotateY(8deg) rotateX(4deg) scale(1.05);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-
-.testimonial-card p {
-  font-size: 1.1rem;
-  color: #374151;
-  margin-bottom: 15px;
-}
-
-.testimonial-card span {
-  font-weight: bold;
-  color: #1f2937;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .testimonials-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
 .contact-section {
   position: relative;
   padding: 80px 20px;
@@ -692,7 +588,6 @@ nav a:hover::after {
       <a href="#about">About</a>
       <a href="products.html">Products</a>
       <a href="#gallery">Gallery</a>
-      <a href="#testimonials">Testimonials</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -720,7 +615,7 @@ nav a:hover::after {
   <div class="about-video-overlay"></div>
   <div class="about-3d">
     <h2>About Us</h2>
-    <p>At UrbanFit, we blend modern street culture with quality fashion. Our mission is to create bold, comfortable, and stylish streetwear for trendsetters.</p>
+    <p>Welcome to our modern, mobile-friendly clothing store! We offer a wide range of stylish apparel—from casual to ethnic wear—designed to fit every season and occasion. With easy navigation, smart filters, secure checkout, and a smooth shopping experience, our platform is built to bring fashion closer to you. Shop smart, shop stylish!</p>
   </div>
 </section>
 
@@ -768,45 +663,10 @@ nav a:hover::after {
   </div>
 </section>
 
-
-
-<section id="testimonials" class="testimonials-section">
-  <!-- Background Video -->
-  <video autoplay muted loop playsinline class="testimonials-video-bg">
-    <source src="video3.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-
-  <!-- Overlay to dim video for better text readability -->
-  <div class="testimonials-video-overlay"></div>
-
-  <h2 class="testimonials-title">What Our Customers Say</h2>
-  <div class="testimonials-grid">
-    <div class="testimonial-card">
-      <div class="bar"></div>
-      <p>"Absolutely love the fit and vibe. UrbanFit nails the streetwear look!"</p>
-      <span>- Aayush</span>
-    </div>
-    <div class="testimonial-card">
-      <div class="bar"></div>
-      <p>"Premium feel and fast shipping. 10/10 would recommend!"</p>
-      <span>- Sneha</span>
-    </div>
-    <div class="testimonial-card">
-      <div class="bar"></div>
-      <p>"UrbanFit exceeded my expectations. Style and comfort, all in one."</p>
-      <span>- Ramesh</span>
-    </div>
-  </div>
-</section>
-
-
-
-
 <section id="contact" class="contact-section">
   <!-- Background Video -->
   <video autoplay muted loop playsinline class="contact-video-bg">
-    <source src="video4.mp4" type="video/mp4" />
+    <source src="video3.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
