@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Cart – Sajilo Luga</title>
+  <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h2 class="logo-text">
+      Sajilo Lu<span class="logo-letter">
+        g
+        <img src="images/logo.png" alt="Sajilo Luga Logo" class="hanging-logo" />
+      </span>a
+    </h2>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="new arrival.html" class="new-arrival">🆕 New Arrivals</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <h1>Your Shopping Cart</h1>
+
+  <div class="cart-container" id="cart-container"></div>
+  <div class="total-section" id="total-section"></div>
+
+  <div style="text-align: center; margin: 20px 0;">
+    <a href="products.html" class="back-home-btn" style="
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    "
+    onmouseover="this.style.backgroundColor='#0056b3'"
+    onmouseout="this.style.backgroundColor='#007BFF'">
+      ← Back to Products
+    </a>
+  </div>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const cartContainer = document.getElementById('cart-container');
+    const totalSection = document.getElementById('total-section');
+
+    function renderCart() {
+      cartContainer.innerHTML = '';
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = '<p class="empty-cart">Your cart is empty.</p>';
+        totalSection.textContent = '';
+        return;
+      }
+
+      cart.forEach((product, index) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('cart-item');
+
+        const cleanPrice = product.price.replace(/NRS/gi, '').replace(/RS/gi, '').trim();
+
+        itemDiv.innerHTML = `
+          <img src="${product.image}" alt="${product.title}" class="cart-image" />
+          <div class="cart-details">
+            <h3 class="cart-title">${product.title}</h3>
+            <p class="cart-description">${product.description}</p>
+            <p class="cart-price">RS. ${cleanPrice}</p>
+            <button class="remove-btn" data-index="${index}">Remove</button>
+          </div>
+        `;
+
+        cartContainer.appendChild(itemDiv);
+      });
+
+      const removeButtons = document.querySelectorAll('.remove-btn');
+      removeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const idx = parseInt(button.getAttribute('data-index'));
+          removeFromCart(idx);
+        });
+      });
+
+      updateTotal();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    function updateTotal() {
+      const total = cart.reduce((sum, product) => {
+        let priceNum = parseFloat(product.price.replace(/[^0-9.]/g, '')) || 0;
+        return sum + priceNum;
+      }, 0);
+
+      totalSection.textContent = `Total: RS. ${total.toFixed(2)}`;
+    }
+
+    renderCart();
+  </script>
+
+</body>
+</html>
