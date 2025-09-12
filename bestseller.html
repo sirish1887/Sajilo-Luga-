@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Best Sellers - Sajilo Luga</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/bestseller.css">
+</head>
+<body>
+
+  <h1>🔥 Best Sellers</h1>
+
+  <div class="product-section">
+
+    <!-- Product 1 -->
+    <div class="product-card-3d">
+      <div class="product-inner">
+        <div class="product-front">
+          <img src="images/img7.jpg" alt="Slim Fit Polo" class="product-image" />
+        </div>
+        <div class="product-back">
+          <h3 class="product-title">Slim Fit Polo Shirt</h3>
+          <p class="product-price">Rs. 2199</p>
+          <p class="product-description">
+            Classic slim fit polo crafted with breathable cotton fabric. Perfect for casual and semi-formal wear.
+          </p>
+          <button class="add-to-cart"
+                  data-title="Slim Fit Polo Shirt"
+                  data-description="Classic slim fit polo crafted with breathable cotton fabric. Perfect for casual and semi-formal wear."
+                  data-price="2199"
+                  data-image="images/img7.jpg">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 (FIXED) -->
+    <div class="product-card-3d">
+      <div class="product-inner">
+        <div class="product-front">
+          <img src="images/jacket.jpg" alt="Leather Jacket" class="product-image" />
+        </div>
+        <div class="product-back">
+          <h3 class="product-title">Men’s Leather Jacket</h3>
+          <p class="product-price">Rs. 4499</p>
+          <p class="product-description">
+            Premium quality leather jacket with durable finish and modern cut. A must-have for your wardrobe.
+          </p>
+          <button class="add-to-cart"
+                  data-title="Men’s Leather Jacket"
+                  data-description="Premium quality leather jacket with durable finish and modern cut. A must-have for your wardrobe."
+                  data-price="4499"
+                  data-image="images/jacket.jpg">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card-3d">
+      <div class="product-inner">
+        <div class="product-front">
+          <img src="images/img4.jpg" alt="Classic White Shirt" class="product-image" />
+        </div>
+        <div class="product-back">
+          <h3 class="product-title">Classic White Shirt</h3>
+          <p class="product-price">Rs. 1799</p>
+          <p class="product-description">
+            Timeless white shirt with tailored fit. Ideal for office, formal events, and everyday style.
+          </p>
+          <button class="add-to-cart"
+                  data-title="Classic White Shirt"
+                  data-description="Timeless white shirt with tailored fit. Ideal for office, formal events, and everyday style."
+                  data-price="1799"
+                  data-image="images/img4.jpg">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Back to Home Button -->
+  <div class="back-home-container">
+    <a href="index.html" class="back-home-btn">← Back to Home</a>
+  </div>
+
+  <!-- Add to Cart Script -->
+  <script>
+    const buttons = document.querySelectorAll('.add-to-cart');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        let priceValue = (button.dataset.price || "0")
+          .toString()
+          .replace(/[^0-9.]/g, '')
+          .trim();
+
+        const product = {
+          title: button.dataset.title || "Untitled Product",
+          description: button.dataset.description || "",
+          price: `NRS ${priceValue}`,
+          image: button.dataset.image || ""
+        };
+
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        button.textContent = 'Added!';
+        button.style.backgroundColor = '#4caf50';
+
+        setTimeout(() => {
+          button.textContent = 'Add to Cart';
+          button.style.backgroundColor = '#ffcc00';
+          window.location.href = 'cart.html';
+        }, 1000);
+      });
+    });
+  </script>
+
+</body>
+</html>
