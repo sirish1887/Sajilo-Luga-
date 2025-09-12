@@ -1,0 +1,165 @@
+/* General Body Styling */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url('../images/background.jpg'); /* ✅ make sure path is correct */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: #00b4cc;
+}
+
+/* Product Section */
+.product-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  perspective: 1200px;
+}
+
+/* Card 3D Effect */
+.product-card-3d {
+  width: 100%;
+  height: 350px;
+  position: relative;
+  perspective: 1500px;
+}
+
+.product-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+}
+
+.product-card-3d:hover .product-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front and Back */
+.product-front,
+.product-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Front Image */
+.product-front {
+  background: #fff;
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Back Face */
+.product-back {
+  background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+  color: #f5f5f5;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+/* Product Info */
+.product-info {
+  text-align: center;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  color: #00eaff;
+  margin-bottom: 0.5rem;
+}
+
+.product-description {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  margin: 0.5rem 0 1rem 0;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.product-description:hover {
+  color: #9a43e1;
+}
+
+.product-price {
+  color: #ffcc70;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+  background-color: #00b4cc;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #007399;
+  transform: scale(1.05);
+}
+
+/* Back to Home Button */
+.back-home-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.back-home-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}

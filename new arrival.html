@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>New Arrivals - Sajilo Luga</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/newarrival.css">
+</head>
+<body>
+
+  <header>
+    <h1>🆕 New Arrivals - Sajilo Luga</h1>
+  </header>
+
+<section class="product-section">
+  <!-- Product 1 -->
+  <div class="product-card-3d">
+    <div class="product-inner">
+      <div class="product-front">
+        <img src="images/casual denim.jpg" alt="Denim Shirt" class="product-image">
+      </div>
+      <div class="product-back">
+        <div class="product-info">
+          <h3 class="product-title">Casual Denim Shirt</h3>
+          <p class="product-price">Rs. 1999</p>
+          <p class="product-description">
+            Comfortable and stylish denim shirt, perfect for casual outings and everyday wear.
+          </p>
+          <button class="add-to-cart"
+            data-title="Casual Denim Shirt"
+            data-price="1999"
+            data-description="Comfortable and stylish denim shirt, perfect for casual outings and everyday wear."
+            data-image="images/casual denim.jpg"
+          >Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product 2 -->
+  <div class="product-card-3d">
+    <div class="product-inner">
+      <div class="product-front">
+        <img src="images/tshirt graphic.jpg" alt="Oversized T-shirt" class="product-image">
+      </div>
+      <div class="product-back">
+        <div class="product-info">
+          <h3 class="product-title">Oversized Graphic Tee</h3>
+          <p class="product-price">Rs. 1499</p>
+          <p class="product-description">
+            Trendy oversized tee with unique graphic prints, made from soft breathable cotton.
+          </p>
+          <button class="add-to-cart"
+            data-title="Oversized Graphic Tee"
+            data-price="1499"
+            data-description="Trendy oversized tee with unique graphic prints, made from soft breathable cotton."
+            data-image="images/tshirt graphic.jpg"
+          >Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product 3 -->
+  <div class="product-card-3d">
+    <div class="product-inner">
+      <div class="product-front">
+        <img src="images/jacket.jpg" alt="Bomber Jacket" class="product-image">
+      </div>
+      <div class="product-back">
+        <div class="product-info">
+          <h3 class="product-title">Urban Bomber Jacket</h3>
+          <p class="product-price">Rs. 3299</p>
+          <p class="product-description">
+            Lightweight bomber jacket with a modern fit, ideal for urban style and cooler days.
+          </p>
+          <button class="add-to-cart"
+            data-title="Urban Bomber Jacket"
+            data-price="3299"
+            data-description="Lightweight bomber jacket with a modern fit, ideal for urban style and cooler days."
+            data-image="images/jacket.jpg"
+          >Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Add to Cart Script -->
+<script>
+  const buttons = document.querySelectorAll('.add-to-cart');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      let priceValue = (button.dataset.price || "0")
+        .toString()
+        .replace(/[^0-9.]/g, '')
+        .trim();
+
+      const product = {
+        title: button.dataset.title,
+        description: button.dataset.description,
+        price: `NRS ${priceValue}`,
+        image: button.dataset.image
+      };
+
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(product);
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      // Button animation
+      button.textContent = 'Added!';
+      button.style.backgroundColor = '#4caf50';
+
+      setTimeout(() => {
+        button.textContent = 'Add to Cart';
+        button.style.backgroundColor = '#ffcc00';
+        window.location.href = 'cart.html';
+      }, 1000);
+    });
+  });
+</script>
+
+  <!-- Back to Home -->
+  <div style="text-align: center; margin: 20px 0;">
+    <a href="index.html" class="back-home-btn" style="
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    "
+    onmouseover="this.style.backgroundColor='#0056b3'"
+    onmouseout="this.style.backgroundColor='#007BFF'">
+      ← Back to Home
+    </a>
+  </div>
+
+  <footer>
+    &copy; 2025 Sajilo Luga. All rights reserved.
+  </footer>
+
+</body>
+</html>

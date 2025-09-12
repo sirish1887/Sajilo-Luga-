@@ -1,0 +1,138 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+  color: #fff;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* FAQ Section */
+.faq-section {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Gradient Heading */
+.faq-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+
+  background-image: linear-gradient(45deg, #00c6ff, #ff6ec4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  display: inline-block;
+}
+
+/* FAQ Items */
+.faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+
+.faq-question {
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+  color: #00c6ff;
+}
+
+/* Toggle Icon */
+.faq-question::after {
+  content: "+";
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+  content: "−";
+  transform: rotate(180deg);
+}
+
+/* Answer with 3D Flip Effect */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  font-size: 1rem;
+  color: #ddd;
+  line-height: 1.5;
+  transform: rotateX(-90deg);
+  transform-origin: top;
+  opacity: 0;
+  transition: 
+    max-height 0.6s ease,
+    transform 0.6s ease,
+    opacity 0.6s ease,
+    padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding-top: 10px;
+  transform: rotateX(0deg);
+  opacity: 1;
+}
+
+/* Back to Home Button */
+.back-home-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 24px;
+  background: #00c6ff;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-home-btn:hover {
+  background: #007399;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .faq-section {
+    margin: 40px 15px;
+    padding: 20px;
+  }
+
+  .faq-section h1 {
+    font-size: 2rem;
+  }
+
+  .faq-question {
+    font-size: 1rem;
+  }
+
+  .back-home-btn {
+    font-size: 0.9rem;
+    padding: 10px 18px;
+  }
+}

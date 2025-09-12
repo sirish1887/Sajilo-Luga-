@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Gallery</title>
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+
+<!-- Header -->
+<header style="display: flex; align-items: center; height: 60px; padding: 0 15px; background: #504e4e; color: white;">
+  <h2 style="display: flex; align-items: center; gap: 0px; font-size: 2rem; margin: 0; position: relative;">
+    Sajilo Lu<span style="position: relative; display: inline-block;">
+      g
+      <img src="images/logo.png" alt="Sajilo Luga Logo" style="
+        position: absolute;
+        left: -300%;
+        top: 50%;
+        transform: translate(-50%, -10%) rotate(5deg); /* pull up to touch the g */
+        height: 120px; /* bigger logo */
+        transform-origin: top center;
+        animation: swing 2s ease-in-out infinite;
+      " />
+    </span>a
+  </h2>
+
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="new arrival.html" style="color: #00eaff; text-decoration: none; font-weight: bold;">🆕 New Arrivals</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+
+    <!-- Gallery Section -->
+<section class="gallery" id="gallery">
+ <div class="gallery-bg">
+    <div class="bg-track">
+      <img src="images/img1.jpg" alt="Style 1">
+      <img src="images/img2.jpg" alt="Style 2">
+      <img src="images/img3.jpg" alt="Style 3">
+      <img src="images/img4.jpg" alt="Style 4">
+      <img src="images/img5.jpg" alt="Style 5">
+      <img src="images/img6.jpg" alt="Slide 6">
+      <img src="images/img7.jpg" alt="Slide 7 ">
+    </div>
+    <div class="blur-overlay"></div>
+  </div>
+
+  <!-- Foreground Gallery Content -->
+  <div class="gallery-content">
+    <h2>Gallery</h2>
+    <div class="gallery-slider">
+      <div class="slide-track">
+  <img src="images/img1.jpg" alt="Slide 1" />
+  <img src="images/img2.jpg" alt="Slide 2" />
+  <img src="images/img3.jpg" alt="Slide 3" />
+  <img src="images/img4.jpg" alt="Slide 4" />
+  <img src="images/img5.jpg" alt="Slide 5" />
+  <img src="images/img6.jpg" alt="Slide 6" />
+  <img src="images/img7.jpg" alt="Slide 7" />
+  
+  <!-- Repeat the same images to enable infinite scroll -->
+  <img src="images/img2.jpg" alt="Slide 2 Duplicate" />
+  <img src="images/img1.jpg" alt="Slide 1 Duplicate" />
+  <img src="images/img4.jpg" alt="Slide 4 Duplicate" />
+  <img src="images/img3.jpg" alt="Slide 3 Duplicate" />
+  <img src="images/img5.jpg" alt="Slide 5 Duplicate" />
+  <img src="images/img7.jpg" alt="Slide 7 Duplicate" />
+  <img src="images/img6.jpg" alt="Slide 6 Duplicate" />
+</div>
+
+
+
+    </div>
+  </div>
+</section>
+
+<section style="background:#000; padding:2rem 0; text-align:center;">
+  <a href="index.html" style="
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #00e0ff;
+    color: black;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  " onmouseover="this.style.backgroundColor='#00b4cc'" onmouseout="this.style.backgroundColor='#00e0ff'">
+    ⬅ Back to Home
+  </a>
+</section>
+
+
+
+</body>
+</html>
