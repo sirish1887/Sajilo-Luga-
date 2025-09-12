@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apply Now - Sajilo Luga</title>
+  <link rel="stylesheet" href="css/apply.css">
+</head>
+<body>
+
+  <h1>Apply for a Career at Sajilo Luga</h1>
+
+  <div class="form-container">
+    <form id="jobApplicationForm" onsubmit="showThankYou(event)">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+
+      <!-- Hidden input to store selected position -->
+      <input type="text" id="position" name="position" required readonly style="display: none;" />
+
+      <!-- Apply buttons -->
+      <button type="button" class="apply-btn" data-position="Web Developer">Apply for Web Developer</button>
+      <button type="button" class="apply-btn" data-position="Graphic Designer">Apply for Graphic Designer</button>
+      <button type="button" class="apply-btn" data-position="Sales Manager">Apply for Sales Manager</button>
+
+      <!-- Display selected job message -->
+      <p id="appliedForMessage" class="applied-message"></p>
+
+      <label for="message">Why do you want to join us?</label>
+      <textarea id="message" rows="4" required></textarea>
+
+      <button type="submit">Submit Application</button>
+    </form>
+
+    <div id="thankYouMessage" class="thank-you">
+      ✅ Thank you! Your form has been successfully submitted.
+    </div>
+  </div>
+
+  <script>
+    function showThankYou(e) {
+      e.preventDefault();
+      document.getElementById("jobApplicationForm").style.display = "none";
+      document.getElementById("thankYouMessage").style.display = "block";
+    }
+
+    const applyButtons = document.querySelectorAll('.apply-btn');
+    const positionInput = document.getElementById('position');
+    const appliedForMessage = document.getElementById('appliedForMessage');
+
+    applyButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const position = button.getAttribute('data-position');
+        positionInput.value = position;
+        positionInput.style.display = 'block';
+        positionInput.focus();
+
+        // Animate selected button
+        button.classList.add('active');
+
+        // Hide the other buttons
+        applyButtons.forEach(btn => {
+          if (btn !== button) {
+            btn.classList.add('hide');
+          }
+        });
+
+        // Show applied for message
+        appliedForMessage.style.display = 'block';
+        appliedForMessage.textContent = `You applied for ${position}`;
+
+        // Scroll to top
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+  <div style="text-align: center; margin: 20px 0;">
+    <a href="index.html" class="back-home-btn" style="
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    "
+    onmouseover="this.style.backgroundColor='#0056b3'"
+    onmouseout="this.style.backgroundColor='#007BFF'">
+      ← Back to Home
+    </a>
+  </div>
+
+</body>
+</html>
